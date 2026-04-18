@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Вход | Сладкий рай{% endblock %}
+{% block content %}
+<section class="card narrow">
+    <h2>Окно входа</h2>
+    <p>Введите логин и пароль или перейдите к просмотру товаров в роли гостя.</p>
+    <form method="post" class="form-grid">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Войти</button>
+    </form>
+    <a class="secondary-btn" href="{% url 'guest' %}">Продолжить как гость</a>
+</section>
+{% endblock %}

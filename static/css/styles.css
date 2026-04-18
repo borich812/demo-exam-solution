@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+    font-family: "Times New Roman", serif;
+    background: #ffffff;
+    color: #222;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    background: #fc34c8;
+    color: #fff;
+    gap: 20px;
+}
+.brand { display: flex; align-items: center; gap: 16px; }
+.logo { width: 72px; height: 72px; object-fit: cover; border-radius: 12px; background: #fff; }
+.nav { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.nav a, .nav button, .accent-link, .secondary-btn {
+    text-decoration: none; color: #000; background: #31ebff; border: none; padding: 10px 14px; border-radius: 10px; cursor: pointer;
+}
+.user-pill { background: rgba(255,255,255,0.85); color: #000; padding: 8px 12px; border-radius: 999px; }
+.page { padding: 24px; }
+.card { background: #fff; border: 2px solid #fc34c8; border-radius: 18px; padding: 24px; box-shadow: 0 8px 20px rgba(0,0,0,0.05); }
+.narrow { max-width: 760px; margin: 0 auto; }
+.form-grid p { display: grid; gap: 6px; }
+.form-grid input, .form-grid select, .form-grid textarea, .toolbar-grid input, .toolbar-grid select {
+    padding: 10px 12px; border-radius: 10px; border: 1px solid #cfcfcf; font-family: inherit; font-size: 16px;
+}
+.form-grid button, .toolbar-grid button { background: #31ebff; border: none; padding: 12px 14px; border-radius: 10px; cursor: pointer; }
+.toolbar-header { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 16px; }
+.toolbar-grid { display: grid; grid-template-columns: 2fr 1fr 1fr auto; gap: 12px; margin-bottom: 20px; }
+.product-list, .order-list { display: grid; gap: 16px; }
+.product-card, .order-card { display: grid; grid-template-columns: 180px 1fr 220px; gap: 16px; align-items: start; border: 1px solid #ddd; border-radius: 16px; padding: 16px; }
+.order-card { grid-template-columns: 1fr 180px; }
+.product-card img { width: 180px; height: 120px; object-fit: cover; border-radius: 14px; background: #f0f0f0; }
+.high-discount { background: #2e8b57; color: #fff; }
+.empty-stock { background: #d8f0ff; }
+.old-price { text-decoration: line-through; color: red; font-weight: bold; }
+.final-price { font-size: 24px; font-weight: bold; }
+.stack-actions { display: grid; gap: 8px; align-content: start; }
+.stack-actions a { text-align: center; text-decoration: none; background: #31ebff; color: #000; padding: 10px; border-radius: 10px; }
+.message { padding: 12px 14px; border-radius: 10px; margin-bottom: 10px; }
+.message.success { background: #ddffea; }
+.message.error { background: #ffe3e3; }
+.muted { color: #555; font-size: 14px; }
+@media (max-width: 900px) {
+    .product-card, .order-card, .toolbar-grid, .header { grid-template-columns: 1fr; display: grid; }
+}

@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Сладкий рай{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+<header class="header">
+    <div class="brand">
+        <img src="{% static 'images/picture.png' %}" alt="Логотип" class="logo">
+        <div>
+            <h1>Сладкий рай</h1>
+            <p>Учет товаров и заказов</p>
+        </div>
+    </div>
+    <nav class="nav">
+        <a href="{% url 'catalog' %}">Товары</a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'orders' %}">Заказы</a>
+            <span class="user-pill">{{ user.profile.full_name }}</span>
+            <form action="{% url 'logout' %}" method="post">{% csrf_token %}<button type="submit">Выход</button></form>
+        {% else %}
+            <a href="{% url 'guest' %}">Гость</a>
+            <a href="{% url 'login' %}" class="accent-link">Вход</a>
+        {% endif %}
+    </nav>
+</header>
+
+<main class="page">
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <div class="message {{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% block content %}{% endblock %}
+</main>
+</body>
+</html>
